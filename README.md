@@ -36,6 +36,7 @@
 
 ### 예시 구조
 <pre><code> src/ ├── main/ │ ├── java/ │ │ └── com/example/demo/ │ │ ├── controller/ │ │ ├── domain/ │ │ ├── repository/ │ │ └── service/ │ └── resources/ │ └── application.yml └── test/ </code></pre>
+
 ### 학습 목표
 - 스프링부트를 활용한 REST API 설계 및 구현
 - 프론트엔드와 백엔드의 통신 구조 이해
