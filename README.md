@@ -35,7 +35,7 @@
 본 프로젝트는 각 장의 실습 내용에 따라 점진적으로 기능을 구현하고 확장해 나가는 방식으로 진행됩니다.
 
 ### 예시 구조
-<pre><code> src/ ├── main/ │ ├── java/ │ │ └── com/example/demo/ │ │ ├── controller/ │ │ ├── domain/ │ │ ├── repository/ │ │ └── service/ │ └── resources/ │ └── application.yml └── test/ </code></pre>
+<pre><code> src/ ├── main/ │ ├── java/ │ │ └── com/example/demo/ # 루트 패키지 │ │ ├── controller/ # 웹 계층 (API 진입 지점) │ │ ├── domain/ # 엔티티 및 도메인 모델 │ │ ├── repository/ # 데이터 접근 계층 │ │ └── service/ # 비즈니스 로직 계층 │ └── resources/ │ └── application.yml # 설정 파일 └── test/ # 테스트 코드 디렉터리 </code></pre>
 
 ### 학습 목표
 - 스프링부트를 활용한 REST API 설계 및 구현
