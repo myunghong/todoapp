@@ -16,7 +16,7 @@
 - Java 17
 - Spring Boot
 - Spring Web / JPA / Validation
-- H2 / MySQL
+- H2
 - Gradle
 - REST API 설계
 
@@ -24,11 +24,6 @@
 - React.js (with CRA or Vite)
 - Axios
 - React Router
-
-### 인프라 (진행 시)
-- AWS EC2
-- Nginx
-- Docker, Docker Compose
 
 ### 학습 목표
 - 스프링부트를 활용한 REST API 설계 및 구현
