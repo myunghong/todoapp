@@ -1,0 +1,11 @@
+@Component를 찾아서 자바 빈으로 등록한다.
+@Service 안에는 @Component가 포함되어 있다.
+
+@Component를 찾기 위해선 @ComponentScan이 작동해야 한다.
+@SpringBootApplication 안에 @ComponentScan이 들어있다.
+
+mvnrepository.com 에 검색하면 원하는 라이브러리를 추가하기 위한 코드를 확인할 수 있다.
+@NoArgsConstructor → 아무 필드도 초기화하지 않는 기본 생성자를 만든다. JPA를 사용하기 위해 필요
+
+스프링 부트는 내장된 아파치 톰캣 서버를 서블릿 컨테이너로 사용한다.
+서블릿 컨테이너는 소켓 프로그래밍, HTTP 요청 파싱, 응답 생성, 스레드풀 관리, 서블릿 실행, URL 매핑, 필터, 세션, 쿠키 등을 관리해준다.
