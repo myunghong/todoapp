@@ -9,3 +9,33 @@ mvnrepository.com 에 검색하면 원하는 라이브러리를 추가하기 위
 
 스프링 부트는 내장된 아파치 톰캣 서버를 서블릿 컨테이너로 사용한다.
 서블릿 컨테이너는 소켓 프로그래밍, HTTP 요청 파싱, 응답 생성, 스레드풀 관리, 서블릿 실행, URL 매핑, 필터, 세션, 쿠키 등을 관리해준다.
+
+REST API는 Representational State Transfer의 약자
+클라이언트 - 서버: 리소스를 관리하는 서버가 존재하고, 클라이언트가 리소스를 위해 서버에 접근하는 구조
+상태가 없는: 클라이언트가 서버에 요청을 보낼 때 이전 요청의 영향을 받지 않는다. 로그인을 하고 main page로 넘어왔다면 login에 대한 것은 저장하지 않고 신경쓰지 않는다.
+캐시 가능한 데이터: 리소스를 리턴할 때 캐시 가능한지 아닌지 명시할 수 있어야 한다.
+일관적인 인터페이스: 리소스에 접근하는 방식, 요청의 형식, 응답의 형식이 일관적이여야 한다
+레이어 시스템: 서버에 요청을 날릴 때 여러 레이어의 서버를 거칠 수 있다. 그 레이어들은 요청과 응답에 영향을 미치지 못한다.
+코드 온-디맨드: 클라이언트는 서버에 코드를 요청할 수 있고, 서버가 리턴한 코드를 실행할 수 있다.
+
+@RestController = @Controller + @ResponseBody
+
+브라우저에서 URL을 입력하여 들어가는건 GET요청이다.
+
+@PathVariable (/users/{id}) 을 이용하면 URI의 경로로 넘어오는 값을 변수로 받아 올 수 있다.
+@RequestParam (/users?id=1) 을 이용하여 쿼리 파라미터 추출
+@RequestBody는 JSON으로 요청 보낼때 그 JSON의 내용이 UserDTO User의 내용이라고 자동으로 매핑해준다.
+
+@ResponseBody는 문자열보다 복잡한 객체같은 것을 JSON으로 리턴할 수 있게 해준다.
+ResponseEntity(자바 클래스)는 HTTP Response의 바디뿐만 아니라 다른 매개변수들, status나 header를 조작하고 싶을 때 사용한다.
+@ResponseBody는 바디에만 내가 원하는 것을 넣는거고 ResponseEntity는 응답의 바디를 포함하여 전반적인 내용을 다 조작할 수 있는것
+
+ResponseEntity는 애너테이션이 아니라 클래스.
+그래서 @ResponseBody처럼 붙이는 게 아니라, "리턴 타입으로 사용하는 객체".
+
+
+
+@PathVariable, @RequestParam, @RequestBody → 클라이언트 → 서버 (요청값 파싱)
+@ResponseBody, ResponseEntity → 서버 → 클라이언트 (응답값 구성)
+
+스프링이 오브젝트를 JSON으로 바꾸는 것처럼 오브젝트를 저장하거나 네트워크를 통해 전달할 수 있도록 변환하는 것을 Serialization, 반대를 Deserialization이라고 한다.
