@@ -1,7 +1,7 @@
 package com.example.TodoApp.service;
 
 import com.example.TodoApp.Repository.TodoRepository;
-import com.example.TodoApp.model.TodoEntity;
+import com.example.TodoApp.entity.TodoEntity;
 import org.springframework.stereotype.Service;
 
 @Service
