@@ -56,3 +56,5 @@ ResponseEntity는 애너테이션이 아니라 클래스.
 
 extends JpaRepository<T, ID>는 Spring Data JPA에서 리포지토리 인터페이스를 정의할 때 사용하는 핵심 기능. 자동으로 CRUD 기능을 생성
  - T는 테이블에 매핑 할 엔티티 클래스, ID는 그 엔티티의 PK(Primary Key) 타입
+
+JPA Repository 안에는 findById, findAll, save, saveAll 같은 기본적인 메서드가 탑재되어 있어 선언 없이 사용할 수 있다.
