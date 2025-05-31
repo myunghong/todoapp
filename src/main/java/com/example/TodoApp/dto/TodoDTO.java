@@ -1,6 +1,6 @@
 package com.example.TodoApp.dto;
 
-import com.example.TodoApp.model.TodoEntity;
+import com.example.TodoApp.entity.TodoEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +19,12 @@ public class TodoDTO {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.done = entity.isDone();
+    }
+    public static TodoEntity toEntity(final TodoDTO dto){
+        return TodoEntity.builder()
+                .id(dto.getId())
+                .title(dto.getTitle())
+                .done(dto.isDone())
+                .build();
     }
 }
