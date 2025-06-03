@@ -7,14 +7,11 @@ import com.example.TodoApp.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestClient;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
-import static org.springframework.http.codec.ServerSentEvent.builder;
 
 @RequiredArgsConstructor
 @RestController
@@ -22,7 +19,6 @@ import static org.springframework.http.codec.ServerSentEvent.builder;
 public class TodoController {
 
     private final TodoService todoService;
-    private final RestClient.Builder builder;
 
     @GetMapping("/test")
     public ResponseEntity<?> testTodo (){
@@ -36,10 +32,10 @@ public class TodoController {
     @PostMapping("/create")
     public ResponseEntity<?> createTodo(@RequestBody TodoDTO dto){
         try{
-            String temporaryUserUId = "temporaryUserUId";
+            String temporaryUserId = "temporaryUserId";
             TodoEntity entity = TodoDTO.toEntity(dto);
             entity.setId(null);
-            entity.setUserId(temporaryUserUId);
+            entity.setUserId(temporaryUserId);
             List<TodoEntity> entities = todoService.create(entity);
             List<TodoDTO> dtos = entities.stream().map(TodoDTO::new).collect(Collectors.toList());
             ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>builder().data(dtos).build();
@@ -50,4 +46,15 @@ public class TodoController {
             return ResponseEntity.badRequest().body(response);
         }
     }
+
+    @GetMapping
+    public ResponseEntity<?> retrievetodo(){
+        String temporaryUserId = "temporaryUserId";
+        List<TodoEntity> entities = todoService.retrieve(temporaryUserId);
+        List<TodoDTO> dtos = entities.stream().map(TodoDTO::new).collect(Collectors.toList());
+        ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>builder().data(dtos).build();
+        return ResponseEntity.ok().body(response);
+    }
+
+
 }
